@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.search.SearchFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        image + name-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/profile_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_image"
+                android:layout_width="@dimen/logo_size"
+                android:layout_height="@dimen/logo_size"
+                android:src="@drawable/profile00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/women_name" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--        Rows-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/my_account_row"
+
+            style="@style/profile_row"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_row">
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_person_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="My Account" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/interests_row"
+            style="@style/profile_row"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_account_row">
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_baseline_star_border_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:text="@string/interests" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+
+
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/settings_row"
+            style="@style/profile_row"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/interests_row">
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_outline_settings_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:text="@string/settings" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/logout_row"
+            style="@style/profile_row"
+            android:gravity="start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settings_row">
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_baseline_login_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="5dp"
+
+                android:text="@string/logout" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/feed_back_row"
+            android:gravity="start"
+            style="@style/profile_row"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logout_row">
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_outline_bug_report_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="5dp"
+                android:text="@string/feedback" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/privacy_policy_row"
+            android:gravity="start"
+            style="@style/profile_row"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feed_back_row">
+
+            <ImageButton
+                android:layout_width="@dimen/icon_size_48"
+                android:layout_height="@dimen/icon_size_48"
+                android:background="@null"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_baseline_privacy_tip_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="5dp"
+                android:text="@string/privacy_policy" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

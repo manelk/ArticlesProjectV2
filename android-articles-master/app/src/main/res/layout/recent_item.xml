@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/normal_15"
+    android:id="@+id/recent_item">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginEnd="@dimen/normal_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_user_recent"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="@dimen/normal_15"
+        android:src="@drawable/profile04"
+        app:civ_border_color="#FF000000"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_username_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_name00" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+<!--more btn -->
+
+            <ImageView
+                android:id="@+id/bookmark_btn"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:contentDescription="@string/back_button_desc"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/ic__bookmark_border_24"
+                android:textColor="#fff"
+                tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+
+            <ImageView
+                android:id="@+id/share_btn"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:contentDescription="@string/back_button_desc"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/ic_baseline_share_24"
+                android:textColor="@color/white"
+                tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck,RedundantDescriptionCheck" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/tv_post_title_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_title_00"
+            android:textSize="@dimen/title_size"
+            android:layout_marginEnd="@dimen/normal_15"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/image_cover_recent"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="@dimen/normal_15"
+            android:layout_weight="1"
+            android:contentDescription="@string/cover_image_recent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/old_women_dog"
+            app:civ_border_width="2dp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

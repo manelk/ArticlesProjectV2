@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="profile_row" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingTop">15dp</item>
+    </style>
+
+    <style name="recycler_standard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+    <style name="input_style" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/rectange_purple_200_80</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+
+    </style>
+
+</resources>
+
+

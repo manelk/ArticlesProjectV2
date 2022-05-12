@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.home.HomeFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   android:paddingHorizontal="@dimen/normal_15"
+    >
+<!--category ships-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_category"
+        style="@style/recycler_standard"
+        android:paddingTop="10dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    Popular-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_popular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/normal_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_category"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/popular"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            />
+<!--        space between-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_popular_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_15"
+            android:textSize="20sp"
+            android:text="@string/view_all_filter"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_popular"
+    style="@style/recycler_standard"
+    app:layout_constraintTop_toBottomOf="@+id/ll_popular"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    />
+
+<!--    Recent add-->
+    <TextView
+        android:id="@+id/tv_most_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_15"
+        android:text="@string/most_recent_title"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_popular"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recent"
+        style="@style/recycler_standard"
+        app:layout_constraintTop_toBottomOf="@+id/tv_most_recent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
