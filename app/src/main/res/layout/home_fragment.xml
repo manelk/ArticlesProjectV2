@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="15dp"
+    >
+<!--category ships-->
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
+            <com.google.android.material.chip.Chip android:id="@+id/techChip" android:layout_width="wrap_content" android:layout_height="match_parent"  android:text="@string/tech"/>
+            <com.google.android.material.chip.Chip android:id="@+id/entChip" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="15dp" android:text="@string/enter"/>
+            <com.google.android.material.chip.Chip android:id="@+id/newsChip" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="15dp" android:text="@string/news"/>
+            <com.google.android.material.chip.Chip android:id="@+id/sportChip" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="15dp" android:text="@string/sport"/>
+            <com.google.android.material.chip.Chip android:id="@+id/businessChip" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="15dp" android:text="@string/buss"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+<!--    Popular-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/popular_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/popular"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            />
+<!--        space between-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/popular_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:text="View All"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popular_row">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/first_article"
+                layout="@layout/article_card"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp" />
+
+            <include
+                layout="@layout/article_card"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp" />
+
+            <include
+                layout="@layout/article_card"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp" />
+
+            <include
+                layout="@layout/article_card"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </HorizontalScrollView>
+
+
+<!--    Recent add-->
+    <TextView
+
+        android:id="@+id/text_most_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Most Recent"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
+        />
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/text_most_recent">
+
+
+    <include
+        layout="@layout/most_popular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <include
+        layout="@layout/most_popular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <include
+        layout="@layout/most_popular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
