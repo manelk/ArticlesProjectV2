@@ -36,7 +36,6 @@ public class RecentAdapter  extends RecyclerView.Adapter<RecentAdapter.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Article pp = data.get(position);
-
         holder.profileImage.setImageResource(pp.getProfileImage());
         holder.coverImage.setImageResource(pp.getCoverImage());
         holder.title.setText(pp.getTitle());
