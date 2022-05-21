@@ -1,9 +1,11 @@
 package com.example.articlesproject;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-
+import android.widget.Toast;
 import com.example.articlesproject.API.Model.ArticaleModel;
 import com.example.articlesproject.API.Model.AuthModel;
 import com.example.articlesproject.API.Model.CategoryModel;
@@ -15,8 +17,11 @@ import com.example.articlesproject.API.services.IAuthMethods;
 import com.example.articlesproject.API.services.ICategoryModel;
 import com.example.articlesproject.API.services.RetrofitClient;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -25,6 +30,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.articlesproject.databinding.ActivityMainBinding;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
@@ -41,6 +47,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("notification_channel", "notification_channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        FirebaseMessaging.getInstance().subscribeToTopic("general")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscribed Successfully";
+                        if (!task.isSuccessful()) {
+                            msg = "Subscription failed";
+                        }
+                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+
+                });
         //************************* Test login *******************************
 
        /* IAuthMethods methods = RetrofitClient.getRetrofitInstance().create(IAuthMethods.class);
@@ -61,51 +86,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-//  ***********************    Test get All  categories  **********************************
-
-   /*    ICategoryModel methods = RetrofitClient.getRetrofitInstance().create(ICategoryModel.class);
-        Call<CategoryModel> call = methods.getAllCategories();
-
-        call.enqueue(new Callback<CategoryModel>() {
-            @Override
-            public void onResponse(Call<CategoryModel> call, Response<CategoryModel> response) {
-                Log.e(TAG , "status " + response.code()  );
-
-                ArrayList<CategoryModel.Category> listCategorie = response.body().getCategoriesList();
-                for(CategoryModel.Category cat : listCategorie) {
-                    Log.e(TAG , "status " + cat.getName()  );
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CategoryModel> call, Throwable t) {
-                Log.e(TAG , "err " + t.getMessage()  );
-            }
-        });*/
 
 
-//  ***********************    Test get All  Articles  **********************************
-/*
-       IArticalesMethods methods = RetrofitClient.getRetrofitInstance().create(IArticalesMethods.class);
-        Call<ArticaleModel> call = methods.getAllArticales();
-
-        call.enqueue(new Callback<ArticaleModel>() {
-            @Override
-            public void onResponse(Call<ArticaleModel> call, Response<ArticaleModel> response) {
-                Log.e(TAG , "status " + response.code() );
-               ArrayList<ArticaleModel.Article> listArticales = response.body().getArticalesList();
-                for(ArticaleModel.Article art : listArticales) {
-                    Log.e(TAG , "status " + art.getTitle() + art.getTitle()  );
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ArticaleModel> call, Throwable t) {
-                Log.e(TAG , "err " + t.getMessage()  );
-            }
-        });
-
-*/
         //  ***********************    Test get Articles by category  **********************************
     /*    IArticalesMethods methods = RetrofitClient.getRetrofitInstance().create(IArticalesMethods.class);
         Call<ArticaleModel> call = methods.getArticalesByCategories(new DataArticaleCategorie("627d590233ba744c679b3748"));
